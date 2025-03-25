@@ -152,6 +152,7 @@ export function usePayfluxProgram() {
         .cancelWorkflow()
         .accounts({
           creator: provider.wallet.publicKey,
+          // @ts-ignore
           workflow: workflowPDA,
           usdcMint: USDC_MINT,
           tokenProgram: TOKEN_PROGRAM_ID,
@@ -181,6 +182,7 @@ export function usePayfluxProgram() {
       return program.methods
         .executePayment()
         .accounts({
+          // @ts-ignore
           workflow: workflowPDA,
           receiver: workflowData.receiver,
           creator: workflowData.creator,
@@ -212,7 +214,7 @@ export function usePayfluxProgram() {
         nextExecutionTime,
         creator: workflowData.creator.toString(),
         receiver: workflowData.receiver.toString(),
-        initialDeposit: workflowData.initialDeposit.toNumber(),
+        totalDeposit: workflowData.totalDeposit.toNumber(),
         transferAmount: workflowData.transferAmount.toNumber(),
         isActive: workflowData.active,
       };
@@ -269,9 +271,15 @@ export function usePayfluxProgram() {
   });
 
   // Helper: Get Authentication Token
+  // async function getAuthToken() {
+  //   const message = `Authenticate-Automation-${Date.now()}`;
+  //   const signature = await provider.wallet.signMessage(new TextEncoder().encode(message));
+  //   return Buffer.from(signature).toString("base64");
+  // }
+
   async function getAuthToken() {
     const message = `Authenticate-Automation-${Date.now()}`;
-    const signature = await provider.wallet.signMessage(new TextEncoder().encode(message));
+    const signature = await (provider.wallet as any).signMessage(new TextEncoder().encode(message));
     return Buffer.from(signature).toString("base64");
   }
 
@@ -315,8 +323,11 @@ export function usePayfluxProgramAccount({ account }: { account: PublicKey }) {
         .rpc(),
     onSuccess: (signature) => {
       transactionToast(signature);
-      queryClient.invalidateQueries(["payflux", "all", { cluster }]);
-      queryClient.invalidateQueries(["payflux", "fetch", { cluster, account }]);
+      queryClient.invalidateQueries({ queryKey: ["payflux", "all", { cluster }] });
+      queryClient.invalidateQueries({ queryKey: ["payflux", "fetch", { cluster, account }] });
+
+      // queryClient.invalidateQueries(["payflux", "all", { cluster }]);
+      // queryClient.invalidateQueries(["payflux", "fetch", { cluster, account }]);
     },
     onError: (error) => toast.error(`Error approving workflow: ${error.message}`),
   });
@@ -330,14 +341,18 @@ export function usePayfluxProgramAccount({ account }: { account: PublicKey }) {
         .accounts({
           creator: program.provider.publicKey,
           usdcMint: USDC_MINT,
+          // @ts-ignore
           workflow: account,
           tokenProgram: TOKEN_PROGRAM_ID,
         })
         .rpc(),
     onSuccess: (signature) => {
       transactionToast(signature);
-      queryClient.invalidateQueries(["payflux", "all", { cluster }]);
-      queryClient.invalidateQueries(["payflux", "fetch", { cluster, account }]);
+      // queryClient.invalidateQueries(["payflux", "all", { cluster }]);
+      // queryClient.invalidateQueries(["payflux", "fetch", { cluster, account }]);
+
+      queryClient.invalidateQueries({ queryKey: ["payflux", "all", { cluster }] });
+      queryClient.invalidateQueries({ queryKey: ["payflux", "fetch", { cluster, account }] });
     },
     onError: (error) => toast.error(`Error canceling workflow: ${error.message}`),
   });
@@ -359,6 +374,7 @@ export function usePayfluxProgramAccount({ account }: { account: PublicKey }) {
       return program.methods
         .executePayment()
         .accounts({
+          // @ts-ignore
           workflow: account,
           receiver: workflowData.receiver,
           creator: workflowData.creator,
