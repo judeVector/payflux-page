@@ -1,6 +1,12 @@
 "use client";
 
-import { getPayfluxProgram, getPayfluxProgramId } from "program/payflux-exports";
+import { Program } from "@coral-xyz/anchor";
+import {
+  getPayfluxProgram,
+  getPayfluxProgramId,
+  Payflux,
+  PayfluxIDL,
+} from "program/payflux-exports";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { Cluster, clusterApiUrl, PublicKey } from "@solana/web3.js";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -52,7 +58,8 @@ export function usePayfluxProgram() {
   const transactionToast = useTransactionToast();
   const provider = useAnchorProvider();
   const programId = useMemo(() => getPayfluxProgramId(endpoint as Cluster), [cluster]);
-  const program = useMemo(() => getPayfluxProgram(provider, programId), [provider, programId]);
+  const program = new Program<Payflux>(PayfluxIDL, provider);
+
   const { publicKey } = useWallet();
   const queryClient = useQueryClient();
 
