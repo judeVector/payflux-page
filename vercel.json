@@ -1,0 +1,14 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "destination": "/dashboard/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "app.payflux.xyz"
+        }
+      ]
+    }
+  ]
+}
