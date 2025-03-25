@@ -12,6 +12,8 @@ import { getPayfluxProgramId } from "program/payflux-exports";
 
 import { atomWithStorage } from "jotai/utils";
 import { useAtom } from "jotai";
+import { WalletAdapterNetwork } from "@solana/wallet-adapter-base";
+import { Cluster } from "@solana/web3.js";
 
 // Define our activity types
 export type ActivityType = "create" | "approve" | "payment" | "cancel" | "unknown";
@@ -50,12 +52,16 @@ function getActivityStatusText(activity: Activity): string {
 export function useActivityFeed() {
   const { connection } = useConnection();
   const { cluster } = useCluster();
+  const network = WalletAdapterNetwork.Devnet;
+  const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
   // Derive the program ID using the current cluster's network string.
-  const programId = useMemo(() => {
-    const network = typeof cluster.network === "string" ? cluster.network : "devnet";
-    return getPayfluxProgramId(clusterApiUrl(network));
-  }, [cluster]);
+  // const programId = useMemo(() => {
+  //   const network = typeof cluster.network === "string" ? cluster.network : "devnet";
+  //   return getPayfluxProgramId(clusterApiUrl(network));
+  // }, [cluster]);
+
+  const programId = useMemo(() => getPayfluxProgramId(endpoint as Cluster), [cluster]);
 
   return useQuery<Activity[]>({
     queryKey: ["payflux", "activities", { cluster }],
