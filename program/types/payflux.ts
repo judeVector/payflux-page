@@ -1,14 +1,20 @@
-{
-  "address": "2hDt1rgbs4ctvQPh7mUaGt6ViNqgFagSxT7JXkeKon4c",
+/**
+ * Program IDL in camelCase format in order to be used in JS/TS.
+ *
+ * Note that this is only a type helper and is not the actual IDL. The original
+ * IDL can be found at `target/idl/payflux.json`.
+ */
+export type Payflux = {
+  "address": "85f2XkwH2sPp6oFb9MBgAprki3HptFMTG2QqwrTAt9Up",
   "metadata": {
-    "name": "paystream",
+    "name": "payflux",
     "version": "0.1.0",
     "spec": "0.1.0",
     "description": "Created with Anchor"
   },
   "instructions": [
     {
-      "name": "approve_workflow",
+      "name": "approveWorkflow",
       "discriminator": [
         77,
         159,
@@ -33,7 +39,7 @@
       "args": []
     },
     {
-      "name": "cancel_workflow",
+      "name": "cancelWorkflow",
       "discriminator": [
         92,
         55,
@@ -51,10 +57,10 @@
           "signer": true
         },
         {
-          "name": "usdc_mint"
+          "name": "usdcMint"
         },
         {
-          "name": "creator_token_account",
+          "name": "creatorTokenAccount",
           "writable": true,
           "pda": {
             "seeds": [
@@ -64,11 +70,11 @@
               },
               {
                 "kind": "account",
-                "path": "token_program"
+                "path": "tokenProgram"
               },
               {
                 "kind": "account",
-                "path": "usdc_mint"
+                "path": "usdcMint"
               }
             ],
             "program": {
@@ -135,13 +141,13 @@
               {
                 "kind": "account",
                 "path": "workflow.workflow_id",
-                "account": "PaymentWorkflow"
+                "account": "paymentWorkflow"
               }
             ]
           }
         },
         {
-          "name": "paystream_vault",
+          "name": "payfluxVault",
           "writable": true,
           "pda": {
             "seeds": [
@@ -188,7 +194,7 @@
               },
               {
                 "kind": "account",
-                "path": "usdc_mint"
+                "path": "usdcMint"
               }
             ],
             "program": {
@@ -231,21 +237,21 @@
           }
         },
         {
-          "name": "associated_token_program",
+          "name": "associatedTokenProgram",
           "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "token_program"
+          "name": "tokenProgram"
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         }
       ],
       "args": []
     },
     {
-      "name": "execute_automation_payment",
+      "name": "executeAutomationPayment",
       "discriminator": [
         96,
         23,
@@ -266,10 +272,10 @@
           "writable": true
         },
         {
-          "name": "usdc_mint"
+          "name": "usdcMint"
         },
         {
-          "name": "receiver_associated_token_a",
+          "name": "receiverAssociatedTokenA",
           "writable": true,
           "pda": {
             "seeds": [
@@ -316,7 +322,7 @@
               },
               {
                 "kind": "account",
-                "path": "usdc_mint"
+                "path": "usdcMint"
               }
             ],
             "program": {
@@ -383,13 +389,13 @@
               {
                 "kind": "account",
                 "path": "workflow.workflow_id",
-                "account": "PaymentWorkflow"
+                "account": "paymentWorkflow"
               }
             ]
           }
         },
         {
-          "name": "paystream_vault",
+          "name": "payfluxVault",
           "writable": true,
           "pda": {
             "seeds": [
@@ -399,11 +405,11 @@
               },
               {
                 "kind": "account",
-                "path": "token_program"
+                "path": "tokenProgram"
               },
               {
                 "kind": "account",
-                "path": "usdc_mint"
+                "path": "usdcMint"
               }
             ],
             "program": {
@@ -446,21 +452,21 @@
           }
         },
         {
-          "name": "associated_token_program",
+          "name": "associatedTokenProgram",
           "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "token_program"
+          "name": "tokenProgram"
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         }
       ],
       "args": []
     },
     {
-      "name": "execute_payment",
+      "name": "executePayment",
       "discriminator": [
         86,
         4,
@@ -481,10 +487,10 @@
           "writable": true
         },
         {
-          "name": "usdc_mint"
+          "name": "usdcMint"
         },
         {
-          "name": "receiver_associated_token_a",
+          "name": "receiverAssociatedTokenA",
           "writable": true,
           "pda": {
             "seeds": [
@@ -531,7 +537,7 @@
               },
               {
                 "kind": "account",
-                "path": "usdc_mint"
+                "path": "usdcMint"
               }
             ],
             "program": {
@@ -598,13 +604,13 @@
               {
                 "kind": "account",
                 "path": "workflow.workflow_id",
-                "account": "PaymentWorkflow"
+                "account": "paymentWorkflow"
               }
             ]
           }
         },
         {
-          "name": "paystream_vault",
+          "name": "payfluxVault",
           "writable": true,
           "pda": {
             "seeds": [
@@ -614,11 +620,11 @@
               },
               {
                 "kind": "account",
-                "path": "token_program"
+                "path": "tokenProgram"
               },
               {
                 "kind": "account",
-                "path": "usdc_mint"
+                "path": "usdcMint"
               }
             ],
             "program": {
@@ -661,21 +667,21 @@
           }
         },
         {
-          "name": "associated_token_program",
+          "name": "associatedTokenProgram",
           "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "token_program"
+          "name": "tokenProgram"
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         }
       ],
       "args": []
     },
     {
-      "name": "initialize_workflow",
+      "name": "initializeWorkflow",
       "discriminator": [
         9,
         226,
@@ -693,10 +699,10 @@
           "signer": true
         },
         {
-          "name": "usdc_mint"
+          "name": "usdcMint"
         },
         {
-          "name": "payer_token_account",
+          "name": "payerTokenAccount",
           "writable": true,
           "pda": {
             "seeds": [
@@ -706,11 +712,11 @@
               },
               {
                 "kind": "account",
-                "path": "token_program"
+                "path": "tokenProgram"
               },
               {
                 "kind": "account",
-                "path": "usdc_mint"
+                "path": "usdcMint"
               }
             ],
             "program": {
@@ -776,13 +782,13 @@
               },
               {
                 "kind": "arg",
-                "path": "workflow_id"
+                "path": "workflowId"
               }
             ]
           }
         },
         {
-          "name": "paystream_vault",
+          "name": "payfluxVault",
           "writable": true,
           "pda": {
             "seeds": [
@@ -792,11 +798,11 @@
               },
               {
                 "kind": "account",
-                "path": "token_program"
+                "path": "tokenProgram"
               },
               {
                 "kind": "account",
-                "path": "usdc_mint"
+                "path": "usdcMint"
               }
             ],
             "program": {
@@ -839,14 +845,14 @@
           }
         },
         {
-          "name": "token_program"
+          "name": "tokenProgram"
         },
         {
-          "name": "associated_token_program",
+          "name": "associatedTokenProgram",
           "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "system_program",
+          "name": "systemProgram",
           "address": "11111111111111111111111111111111"
         },
         {
@@ -856,15 +862,15 @@
       ],
       "args": [
         {
-          "name": "workflow_id",
+          "name": "workflowId",
           "type": "string"
         },
         {
-          "name": "total_deposit_in_usdc",
+          "name": "totalDepositInUsdc",
           "type": "u64"
         },
         {
-          "name": "transfer_amount_in_usdc",
+          "name": "transferAmountInUsdc",
           "type": "u64"
         },
         {
@@ -872,11 +878,11 @@
           "type": "i64"
         },
         {
-          "name": "approvals_required",
+          "name": "approvalsRequired",
           "type": "u8"
         },
         {
-          "name": "authorized_approvers",
+          "name": "authorizedApprovers",
           "type": {
             "vec": "pubkey"
           }
@@ -890,7 +896,7 @@
   ],
   "accounts": [
     {
-      "name": "PaymentWorkflow",
+      "name": "paymentWorkflow",
       "discriminator": [
         128,
         3,
@@ -906,63 +912,63 @@
   "errors": [
     {
       "code": 6000,
-      "name": "InvalidAmount",
+      "name": "invalidAmount",
       "msg": "Invalid USDC amount."
     },
     {
       "code": 6001,
-      "name": "InvalidApprovalsRequired",
+      "name": "invalidApprovalsRequired",
       "msg": "Invalid approvals required."
     },
     {
       "code": 6002,
-      "name": "InvalidInterval",
+      "name": "invalidInterval",
       "msg": "Invalid interval."
     },
     {
       "code": 6003,
-      "name": "WorkflowIdTooLong",
+      "name": "workflowIdTooLong",
       "msg": "Workflow ID is too long."
     },
     {
       "code": 6004,
-      "name": "InvalidUsdcMint",
+      "name": "invalidUsdcMint",
       "msg": "Invalid USDC Mint address."
     },
     {
       "code": 6005,
-      "name": "Unauthorized",
+      "name": "unauthorized",
       "msg": "Unauthorized action."
     },
     {
       "code": 6006,
-      "name": "WorkflowInactive",
+      "name": "workflowInactive",
       "msg": "Workflow is not active."
     },
     {
       "code": 6007,
-      "name": "AlreadyApproved",
+      "name": "alreadyApproved",
       "msg": "Approver has already approved."
     },
     {
       "code": 6008,
-      "name": "ApprovalOverflow",
+      "name": "approvalOverflow",
       "msg": "Approval count overflow."
     },
     {
       "code": 6009,
-      "name": "PaymentNotDue",
+      "name": "paymentNotDue",
       "msg": "Payment is not due yet."
     },
     {
       "code": 6010,
-      "name": "InsufficientApprovals",
+      "name": "insufficientApprovals",
       "msg": "Insufficient approvals to execute payment."
     }
   ],
   "types": [
     {
-      "name": "PaymentWorkflow",
+      "name": "paymentWorkflow",
       "docs": [
         "The data stored for each payment workflow."
       ],
@@ -970,7 +976,7 @@
         "kind": "struct",
         "fields": [
           {
-            "name": "workflow_id",
+            "name": "workflowId",
             "type": "string"
           },
           {
@@ -978,15 +984,15 @@
             "type": "pubkey"
           },
           {
-            "name": "usdc_mint",
+            "name": "usdcMint",
             "type": "pubkey"
           },
           {
-            "name": "total_deposit",
+            "name": "totalDeposit",
             "type": "u64"
           },
           {
-            "name": "transfer_amount",
+            "name": "transferAmount",
             "type": "u64"
           },
           {
@@ -994,15 +1000,15 @@
             "type": "i64"
           },
           {
-            "name": "next_payment",
+            "name": "nextPayment",
             "type": "i64"
           },
           {
-            "name": "approvals_required",
+            "name": "approvalsRequired",
             "type": "u8"
           },
           {
-            "name": "approvals_received",
+            "name": "approvalsReceived",
             "type": "u8"
           },
           {
@@ -1010,7 +1016,7 @@
             "type": "bool"
           },
           {
-            "name": "authorized_approvers",
+            "name": "authorizedApprovers",
             "type": {
               "array": [
                 "pubkey",
@@ -1028,7 +1034,7 @@
             }
           },
           {
-            "name": "approver_count",
+            "name": "approverCount",
             "type": "u8"
           },
           {
@@ -1045,9 +1051,9 @@
   ],
   "constants": [
     {
-      "name": "SEED",
+      "name": "seed",
       "type": "string",
       "value": "\"anchor\""
     }
   ]
-}
+};

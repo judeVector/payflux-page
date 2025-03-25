@@ -1,20 +1,14 @@
-/**
- * Program IDL in camelCase format in order to be used in JS/TS.
- *
- * Note that this is only a type helper and is not the actual IDL. The original
- * IDL can be found at `target/idl/paystream.json`.
- */
-export type Paystream = {
-  "address": "2hDt1rgbs4ctvQPh7mUaGt6ViNqgFagSxT7JXkeKon4c",
+{
+  "address": "85f2XkwH2sPp6oFb9MBgAprki3HptFMTG2QqwrTAt9Up",
   "metadata": {
-    "name": "paystream",
+    "name": "payflux",
     "version": "0.1.0",
     "spec": "0.1.0",
     "description": "Created with Anchor"
   },
   "instructions": [
     {
-      "name": "approveWorkflow",
+      "name": "approve_workflow",
       "discriminator": [
         77,
         159,
@@ -39,7 +33,7 @@ export type Paystream = {
       "args": []
     },
     {
-      "name": "cancelWorkflow",
+      "name": "cancel_workflow",
       "discriminator": [
         92,
         55,
@@ -57,10 +51,10 @@ export type Paystream = {
           "signer": true
         },
         {
-          "name": "usdcMint"
+          "name": "usdc_mint"
         },
         {
-          "name": "creatorTokenAccount",
+          "name": "creator_token_account",
           "writable": true,
           "pda": {
             "seeds": [
@@ -70,11 +64,11 @@ export type Paystream = {
               },
               {
                 "kind": "account",
-                "path": "tokenProgram"
+                "path": "token_program"
               },
               {
                 "kind": "account",
-                "path": "usdcMint"
+                "path": "usdc_mint"
               }
             ],
             "program": {
@@ -141,13 +135,13 @@ export type Paystream = {
               {
                 "kind": "account",
                 "path": "workflow.workflow_id",
-                "account": "paymentWorkflow"
+                "account": "PaymentWorkflow"
               }
             ]
           }
         },
         {
-          "name": "paystreamVault",
+          "name": "payflux_vault",
           "writable": true,
           "pda": {
             "seeds": [
@@ -194,7 +188,7 @@ export type Paystream = {
               },
               {
                 "kind": "account",
-                "path": "usdcMint"
+                "path": "usdc_mint"
               }
             ],
             "program": {
@@ -237,21 +231,21 @@ export type Paystream = {
           }
         },
         {
-          "name": "associatedTokenProgram",
+          "name": "associated_token_program",
           "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "tokenProgram"
+          "name": "token_program"
         },
         {
-          "name": "systemProgram",
+          "name": "system_program",
           "address": "11111111111111111111111111111111"
         }
       ],
       "args": []
     },
     {
-      "name": "executeAutomationPayment",
+      "name": "execute_automation_payment",
       "discriminator": [
         96,
         23,
@@ -272,10 +266,10 @@ export type Paystream = {
           "writable": true
         },
         {
-          "name": "usdcMint"
+          "name": "usdc_mint"
         },
         {
-          "name": "receiverAssociatedTokenA",
+          "name": "receiver_associated_token_a",
           "writable": true,
           "pda": {
             "seeds": [
@@ -322,7 +316,7 @@ export type Paystream = {
               },
               {
                 "kind": "account",
-                "path": "usdcMint"
+                "path": "usdc_mint"
               }
             ],
             "program": {
@@ -389,13 +383,13 @@ export type Paystream = {
               {
                 "kind": "account",
                 "path": "workflow.workflow_id",
-                "account": "paymentWorkflow"
+                "account": "PaymentWorkflow"
               }
             ]
           }
         },
         {
-          "name": "paystreamVault",
+          "name": "payflux_vault",
           "writable": true,
           "pda": {
             "seeds": [
@@ -405,11 +399,11 @@ export type Paystream = {
               },
               {
                 "kind": "account",
-                "path": "tokenProgram"
+                "path": "token_program"
               },
               {
                 "kind": "account",
-                "path": "usdcMint"
+                "path": "usdc_mint"
               }
             ],
             "program": {
@@ -452,21 +446,21 @@ export type Paystream = {
           }
         },
         {
-          "name": "associatedTokenProgram",
+          "name": "associated_token_program",
           "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "tokenProgram"
+          "name": "token_program"
         },
         {
-          "name": "systemProgram",
+          "name": "system_program",
           "address": "11111111111111111111111111111111"
         }
       ],
       "args": []
     },
     {
-      "name": "executePayment",
+      "name": "execute_payment",
       "discriminator": [
         86,
         4,
@@ -487,10 +481,10 @@ export type Paystream = {
           "writable": true
         },
         {
-          "name": "usdcMint"
+          "name": "usdc_mint"
         },
         {
-          "name": "receiverAssociatedTokenA",
+          "name": "receiver_associated_token_a",
           "writable": true,
           "pda": {
             "seeds": [
@@ -537,7 +531,7 @@ export type Paystream = {
               },
               {
                 "kind": "account",
-                "path": "usdcMint"
+                "path": "usdc_mint"
               }
             ],
             "program": {
@@ -604,13 +598,13 @@ export type Paystream = {
               {
                 "kind": "account",
                 "path": "workflow.workflow_id",
-                "account": "paymentWorkflow"
+                "account": "PaymentWorkflow"
               }
             ]
           }
         },
         {
-          "name": "paystreamVault",
+          "name": "payflux_vault",
           "writable": true,
           "pda": {
             "seeds": [
@@ -620,11 +614,11 @@ export type Paystream = {
               },
               {
                 "kind": "account",
-                "path": "tokenProgram"
+                "path": "token_program"
               },
               {
                 "kind": "account",
-                "path": "usdcMint"
+                "path": "usdc_mint"
               }
             ],
             "program": {
@@ -667,21 +661,21 @@ export type Paystream = {
           }
         },
         {
-          "name": "associatedTokenProgram",
+          "name": "associated_token_program",
           "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "tokenProgram"
+          "name": "token_program"
         },
         {
-          "name": "systemProgram",
+          "name": "system_program",
           "address": "11111111111111111111111111111111"
         }
       ],
       "args": []
     },
     {
-      "name": "initializeWorkflow",
+      "name": "initialize_workflow",
       "discriminator": [
         9,
         226,
@@ -699,10 +693,10 @@ export type Paystream = {
           "signer": true
         },
         {
-          "name": "usdcMint"
+          "name": "usdc_mint"
         },
         {
-          "name": "payerTokenAccount",
+          "name": "payer_token_account",
           "writable": true,
           "pda": {
             "seeds": [
@@ -712,11 +706,11 @@ export type Paystream = {
               },
               {
                 "kind": "account",
-                "path": "tokenProgram"
+                "path": "token_program"
               },
               {
                 "kind": "account",
-                "path": "usdcMint"
+                "path": "usdc_mint"
               }
             ],
             "program": {
@@ -782,13 +776,13 @@ export type Paystream = {
               },
               {
                 "kind": "arg",
-                "path": "workflowId"
+                "path": "workflow_id"
               }
             ]
           }
         },
         {
-          "name": "paystreamVault",
+          "name": "payflux_vault",
           "writable": true,
           "pda": {
             "seeds": [
@@ -798,11 +792,11 @@ export type Paystream = {
               },
               {
                 "kind": "account",
-                "path": "tokenProgram"
+                "path": "token_program"
               },
               {
                 "kind": "account",
-                "path": "usdcMint"
+                "path": "usdc_mint"
               }
             ],
             "program": {
@@ -845,14 +839,14 @@ export type Paystream = {
           }
         },
         {
-          "name": "tokenProgram"
+          "name": "token_program"
         },
         {
-          "name": "associatedTokenProgram",
+          "name": "associated_token_program",
           "address": "ATokenGPvbdGVxr1b2hvZbsiqW5xWH25efTNsLJA8knL"
         },
         {
-          "name": "systemProgram",
+          "name": "system_program",
           "address": "11111111111111111111111111111111"
         },
         {
@@ -862,15 +856,15 @@ export type Paystream = {
       ],
       "args": [
         {
-          "name": "workflowId",
+          "name": "workflow_id",
           "type": "string"
         },
         {
-          "name": "totalDepositInUsdc",
+          "name": "total_deposit_in_usdc",
           "type": "u64"
         },
         {
-          "name": "transferAmountInUsdc",
+          "name": "transfer_amount_in_usdc",
           "type": "u64"
         },
         {
@@ -878,11 +872,11 @@ export type Paystream = {
           "type": "i64"
         },
         {
-          "name": "approvalsRequired",
+          "name": "approvals_required",
           "type": "u8"
         },
         {
-          "name": "authorizedApprovers",
+          "name": "authorized_approvers",
           "type": {
             "vec": "pubkey"
           }
@@ -896,7 +890,7 @@ export type Paystream = {
   ],
   "accounts": [
     {
-      "name": "paymentWorkflow",
+      "name": "PaymentWorkflow",
       "discriminator": [
         128,
         3,
@@ -912,63 +906,63 @@ export type Paystream = {
   "errors": [
     {
       "code": 6000,
-      "name": "invalidAmount",
+      "name": "InvalidAmount",
       "msg": "Invalid USDC amount."
     },
     {
       "code": 6001,
-      "name": "invalidApprovalsRequired",
+      "name": "InvalidApprovalsRequired",
       "msg": "Invalid approvals required."
     },
     {
       "code": 6002,
-      "name": "invalidInterval",
+      "name": "InvalidInterval",
       "msg": "Invalid interval."
     },
     {
       "code": 6003,
-      "name": "workflowIdTooLong",
+      "name": "WorkflowIdTooLong",
       "msg": "Workflow ID is too long."
     },
     {
       "code": 6004,
-      "name": "invalidUsdcMint",
+      "name": "InvalidUsdcMint",
       "msg": "Invalid USDC Mint address."
     },
     {
       "code": 6005,
-      "name": "unauthorized",
+      "name": "Unauthorized",
       "msg": "Unauthorized action."
     },
     {
       "code": 6006,
-      "name": "workflowInactive",
+      "name": "WorkflowInactive",
       "msg": "Workflow is not active."
     },
     {
       "code": 6007,
-      "name": "alreadyApproved",
+      "name": "AlreadyApproved",
       "msg": "Approver has already approved."
     },
     {
       "code": 6008,
-      "name": "approvalOverflow",
+      "name": "ApprovalOverflow",
       "msg": "Approval count overflow."
     },
     {
       "code": 6009,
-      "name": "paymentNotDue",
+      "name": "PaymentNotDue",
       "msg": "Payment is not due yet."
     },
     {
       "code": 6010,
-      "name": "insufficientApprovals",
+      "name": "InsufficientApprovals",
       "msg": "Insufficient approvals to execute payment."
     }
   ],
   "types": [
     {
-      "name": "paymentWorkflow",
+      "name": "PaymentWorkflow",
       "docs": [
         "The data stored for each payment workflow."
       ],
@@ -976,7 +970,7 @@ export type Paystream = {
         "kind": "struct",
         "fields": [
           {
-            "name": "workflowId",
+            "name": "workflow_id",
             "type": "string"
           },
           {
@@ -984,15 +978,15 @@ export type Paystream = {
             "type": "pubkey"
           },
           {
-            "name": "usdcMint",
+            "name": "usdc_mint",
             "type": "pubkey"
           },
           {
-            "name": "totalDeposit",
+            "name": "total_deposit",
             "type": "u64"
           },
           {
-            "name": "transferAmount",
+            "name": "transfer_amount",
             "type": "u64"
           },
           {
@@ -1000,15 +994,15 @@ export type Paystream = {
             "type": "i64"
           },
           {
-            "name": "nextPayment",
+            "name": "next_payment",
             "type": "i64"
           },
           {
-            "name": "approvalsRequired",
+            "name": "approvals_required",
             "type": "u8"
           },
           {
-            "name": "approvalsReceived",
+            "name": "approvals_received",
             "type": "u8"
           },
           {
@@ -1016,7 +1010,7 @@ export type Paystream = {
             "type": "bool"
           },
           {
-            "name": "authorizedApprovers",
+            "name": "authorized_approvers",
             "type": {
               "array": [
                 "pubkey",
@@ -1034,7 +1028,7 @@ export type Paystream = {
             }
           },
           {
-            "name": "approverCount",
+            "name": "approver_count",
             "type": "u8"
           },
           {
@@ -1051,9 +1045,9 @@ export type Paystream = {
   ],
   "constants": [
     {
-      "name": "seed",
+      "name": "SEED",
       "type": "string",
       "value": "\"anchor\""
     }
   ]
-};
+}
