@@ -14,7 +14,7 @@ export default function HomePage() {
           workflows. Perfect for team salaries, contractor payments, and recurring transactions.
         </p>
         <div className="mt-10 flex items-center justify-center gap-x-6">
-          <Link href="/dashboard">
+          <Link href="https://app.payflux.xyz/" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="gap-2">
               Launch App
               <ArrowRight className="h-4 w-4" />
