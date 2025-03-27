@@ -1,12 +1,7 @@
 "use client";
 
 import { Program } from "@coral-xyz/anchor";
-import {
-  getPayfluxProgram,
-  getPayfluxProgramId,
-  Payflux,
-  PayfluxIDL,
-} from "program/payflux-exports";
+import { getPayfluxProgramId, Payflux, PayfluxIDL } from "program/payflux-exports";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 import { Cluster, clusterApiUrl, PublicKey } from "@solana/web3.js";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
